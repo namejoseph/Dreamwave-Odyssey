@@ -76,19 +76,20 @@ h1 {
     right: 0px;
     width: 70%;
     height: 40%;
+    z-index: 40;
 }
 
 .logo-layer {
     position: absolute;
     bottom: 0;
     right: 0;
-    z-index: 10;
     display: flex;
     justify-content: end;
     align-items: end;
     width: 90%;
     max-width: 1000px;
     pointer-events: none; /* Ensures interaction with the layer below */
+    z-index: 45;
 }
 
 .logo-layer img {
@@ -177,7 +178,28 @@ h1 {
     left: 0;
     padding: 20px;
     background-color: black;
-  }
+    z-index: 50;
+}
+
+@media (max-width: 950px) {
+    .social-icons {
+        position: fixed; /* Ensures it stays at the bottom of the screen */
+        width: 100%; /* Only applies for mobile and tablet */
+        left: 0;
+        bottom: 0;
+        height: 80px;
+        justify-content: space-around; /* Better layout for smaller screens */
+    }
+
+    .logo-layer img {
+        bottom: 80px;
+    }
+
+    .animation-layer {
+        bottom: 80px;
+    }
+}
+
   
   .social-icon {
     font-size: 20px; /* Adjust size */
