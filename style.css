@@ -426,8 +426,7 @@ a:hover {
 
 @media screen and (max-width:400px) {
     #mc_embed_signup .foot {
-        display: grid;
-        grid-template-columns: 1fr;
+        display: flex;
         width: 100%;
         align-items: center;
     }
@@ -483,12 +482,10 @@ a:hover {
 
 #mc_embed_signup div.response {
     margin: 1em 0;
-    padding: 1em .5em .5em 0;
     font-weight: bold;
     float: left;
     top: -1.5em;
     z-index: 1;
-    width: 80%;
 }
 
 #mc_embed_signup #mce-error-response {
