@@ -254,14 +254,8 @@ a:hover {
 .mc-button {
     background-color: black;
     color: white;
-    border: none;
-    padding: 10px;
-}
-
-.mc-button {
-    background-color: black;
-    color: white;
-    border: none;
+    border: none !important;
+    margin: 0 !important;
     padding: 10px;
 }
 
