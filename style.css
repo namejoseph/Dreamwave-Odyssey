@@ -234,10 +234,16 @@ a:hover {
 }
 
 /* MailChimp Form Embed Code - Classic - 12/17/2015 v10.7 */
+
+#mc_embed_shell {
+    width: 600px;
+    max-width: 90%;
+}
+
 #mc_embed_signup {
     background: none;
     clear: left;
-    width: 600px;
+    width: 100%;
 }
 
 #mc_embed_signup form {
