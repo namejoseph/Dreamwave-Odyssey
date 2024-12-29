@@ -279,3 +279,11 @@ input[type="email"] {
     width: 600px;
     max-width: 60%;
 }
+
+#mc-embedded-subscribe {
+    margin: 0;
+}
+
+#mc_embed_signup form {
+    text-align: center;
+}
