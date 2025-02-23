@@ -10,14 +10,19 @@ body {
     padding: 0;
     width: 100%;
     height: 100%;
-
+    overflow-x: hidden;
+    /* Prevent horizontal scrolling */
 }
 
 @font-face {
     font-family: 'Good Times';
-    src: url('GoodTimesRg.otf') format('opentype');
+    src: url('GoodTimesRg.otf') format('opentype'),
+        url('GoodTimesRg.woff') format('woff'),
+        url('GoodTimesRg.ttf') format('truetype'),
+        url('GoodTimesRg.svg#GoodTimes') format('svg');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 body {
@@ -29,27 +34,55 @@ body {
 }
 
 h2 {
-    font-family: 'Good Times', sans-serif;
+    font-family: 'Good Times', Helvetica, sans-serif;
 }
 
 h3 {
-    font-family: 'Good Times', sans-serif;
+    font-family: 'Good Times', Helvetica, sans-serif;
     font-size: 1.5em;
 }
 
 .good-times {
-    font-family: 'Good Times', sans-serif;
+    font-family: 'Good Times', Helvetica, sans-serif;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    50% { opacity: 0.8; }
+    100% { opacity: 0; }
+}
+
+.animation-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.header-content-top,
+.header-content-middle,
+.header-content-bottom {
+    position: relative;
+    /* Ensures these divs are positioned relative to the header */
+    z-index: 2;
+    /* Places content above the animation layer */
 }
 
 header {
     display: flex;
     flex-direction: column;
-    /* Changed from row to column */
     align-items: center;
     padding: 0;
     background: black;
     background: url('dreamwave-website-img-bg1.jpg');
     background-size: cover;
+    position: relative;
+    /* Establishes a stacking context for the header */
+    overflow: hidden;
+    /* Ensures animations stay within bounds if needed */
 }
 
 .header-content-top {
@@ -127,8 +160,8 @@ header {
 
     .hashtag {
 
-    width: 600px;
-    max-width: 90%;
+        width: 600px;
+        max-width: 90%;
     }
 
     .header-content-top .social-icons {
@@ -156,7 +189,8 @@ header {
 }
 
 .social-icon:hover {
-    color: #79ffff !important; /* Ensure color change on hover */
+    color: #79ffff !important;
+    /* Ensure color change on hover */
 }
 
 a {
@@ -202,24 +236,56 @@ a:hover {
     width: 100%;
     margin: 0;
     display: flex;
-    justify-content: right;
-    overflow: hidden; /* Prevent overflow */
+    justify-content: flex-end;
+    overflow: hidden;
+    /* Prevent overflow */
+    position: relative;
+    /* Establishes stacking context */
 }
 
 .hero-logo img {
     width: 95%;
-    max-width: 100%; /* Ensure the logo doesn't exceed the container width */
+    max-width: 100%;
+    /* Ensure the logo doesn't exceed the container width */
     margin: 0;
+}
+
+.logo-stack {
+    position: relative;
+    display: flex;
+    /* Change to flex for layering */
+    flex-direction: column;
+    /* Stack layers vertically (if needed) */
+    /* Remove inline-block if using flex */
+}
+
+.logo-base {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    /* Maintains proportional scaling */
+    height: auto;
+}
+
+.logo-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    /* Matches the base layer size */
+    height: auto;
+    pointer-events: none;
 }
 
 .event-info {
     background-color: black;
     text-align: center;
-    margin: 40px;
+    padding: 40px 20px;
 }
 
 .event-dates {
-    width: 90%;
+    width: 100%;
 }
 
 .lineup-info {
@@ -261,21 +327,25 @@ a:hover {
 }
 
 .artist-list ul {
-    list-style-type: none; /* Remove bullets */
+    list-style-type: none;
+    /* Remove bullets */
     padding: 0;
 }
 
 .artist-list li {
-    margin-bottom: 10px; /* Add some space between list items */
+    margin-bottom: 10px;
+    /* Add some space between list items */
 }
 
 .artist-list li span.artist-name {
-    font-size: 1.2em; /* Increase font size for artist names */
+    font-size: 1.2em;
+    /* Increase font size for artist names */
     font-weight: bold;
 }
 
 .artist-list li span.artist-time {
-    font-size: 1em; /* Keep font size for times the same */
+    font-size: 1em;
+    /* Keep font size for times the same */
 }
 
 .column {
@@ -286,7 +356,7 @@ a:hover {
 
 .sponsor-info {
     text-align: center;
-    padding: 40px;
+    padding: 20px;
     background: black;
 }
 
