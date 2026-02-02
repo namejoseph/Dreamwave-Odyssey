@@ -37,7 +37,6 @@
             position: relative;
         }
 
-        /* Starburst background - behind everything */
         body::before {
             content: '';
             position: fixed;
@@ -45,33 +44,10 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: url('../assets/img/dreamwave-website-bg-starburst.jpg') no-repeat center center;
+            background: url('../assets/img/dreamwave-website-bg-combined.jpg') no-repeat center center;
             background-size: cover;
-            z-index: -30;
+            z-index: -10;
             pointer-events: none;
-        }
-
-        /* Pattern overlay (front-most background layer) */
-        body::after {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: url('../assets/img/dreamwave-website-bg-pattern.jpg') no-repeat center center;
-            background-size: cover;
-            mix-blend-mode: hue;
-            opacity: 0.35;
-            z-index: -15;
-            pointer-events: none;
-        }
-
-        @supports (-webkit-touch-callout: none) {
-            body::after {
-                mix-blend-mode: normal;
-                opacity: 0.18;
-            }
         }
 
         .container {
