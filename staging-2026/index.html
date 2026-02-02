@@ -30,12 +30,25 @@
         body {
             margin: 0;
             padding: 0;
-            background: #000 url('../assets/img/dreamwave-website-bg-starburst.jpg') no-repeat center center fixed;
-            background-size: contain;
+            background: #000;
             color: #fff;
             font-family: Trebuchet MS, sans-serif;
             line-height: 1.6;
             position: relative;
+        }
+
+        /* Starburst background - behind everything */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: url('../assets/img/dreamwave-website-bg-starburst.jpg') no-repeat center center;
+            background-size: cover;
+            z-index: -10;
+            pointer-events: none;
         }
 
         /* Background images container */
@@ -76,6 +89,12 @@
             height: auto;
         }
 
+        @media (min-width: 768px) {
+            .header-image {
+                max-width: 450px;
+            }
+        }
+
 
         /* Intro */
         .intro {
@@ -97,6 +116,7 @@
         .lineup-image img {
             width: 100%;
             height: auto;
+            border: 1px solid #fff;
         }
 
         /* Lineup Text */
@@ -203,12 +223,12 @@
 </head>
 <body>
     <!-- Background Images -->
-    <div class="bg-top">
+    <!-- <div class="bg-top">
         <img src="../assets/img/dreamwave-website-bg-top.jpg" alt="">
     </div>
     <div class="bg-bottom">
         <img src="../assets/img/dreamwave-website-bg-bottom.jpg" alt="">
-    </div>
+    </div> -->
 
     <div class="container">
 
@@ -225,7 +245,9 @@
 
         <!-- Lineup Image -->
         <div class="lineup-image">
-            <img src="../assets/img/dreamwaveodyssey-2026-lineup-website.jpg" alt="𝒟𝑅𝐸𝒜𝑀𝒲𝒜𝒱𝐸 𝒪𝒟𝒴𝒮𝒮𝐸𝒴 2026 Lineup">
+            <a href="https://www.eventbrite.com/e/dreamwave-odyssey-2026-tickets-1982236650181?aff=oddtdtcreator" target="_blank" rel="noopener">
+                <img src="../assets/img/dreamwaveodyssey-2026-lineup-website.jpg" alt="𝒟𝑅𝐸𝒜𝑀𝒲𝒜𝒱𝐸 𝒪𝒟𝒴𝒮𝒮𝐸𝒴 2026 Lineup">
+            </a>
         </div>
 
         <!-- Lineup Text -->
@@ -254,7 +276,7 @@
         </div>
 
         <!-- RSVP Button -->
-        <a href="#" class="rsvp-btn">RSVP Here</a>
+        <a href="https://www.eventbrite.com/e/dreamwave-odyssey-2026-tickets-1982236650181?aff=oddtdtcreator" target="_blank" rel="noopener" class="rsvp-btn">RSVP Here</a>
 
         <!-- Hashtag -->
         <div class="hashtag">
