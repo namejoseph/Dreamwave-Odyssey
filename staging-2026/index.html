@@ -67,6 +67,13 @@
             pointer-events: none;
         }
 
+        @supports (-webkit-touch-callout: none) {
+            body::after {
+                mix-blend-mode: normal;
+                opacity: 0.18;
+            }
+        }
+
         .container {
             max-width: 800px;
             margin: 0 auto;
